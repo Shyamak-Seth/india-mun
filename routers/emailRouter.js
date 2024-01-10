@@ -1,5 +1,13 @@
 const router = require('express').Router()
 const {sendMail} = require('../utils/mailHelper')
+const cors = require('cors')
+const bodyParser = require('body-parser')
+
+router.use(bodyParser.urlencoded({extended: true}))
+
+router.use(bodyParser.json())
+
+router.use(cors({origin: true}))
 
 router.post('/', async (req, res) => {
     const myBody = req.body
