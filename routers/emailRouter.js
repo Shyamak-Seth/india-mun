@@ -10,7 +10,9 @@ router.use(bodyParser.json())
 router.use(cors({origin: true}))
 
 router.post('/', async (req, res) => {
-    const myBody = req.body
+    const myBody = JSON.parse(req.body)
+    console.log(req.body)
+    console.log(JSON.parse(req.body))
     const {text, subject, userEmail} = myBody
     try {
         await sendMail(
