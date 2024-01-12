@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
         await sendMail(
             "indiamunofficial@gmail.com",
             subject,
-            text,
+            text + ". By " + userEmail,
             null
         )
         res.send({success: true, msg: 'Success!'})
