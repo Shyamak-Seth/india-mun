@@ -1,7 +1,5 @@
 const router = require('express').Router()
 const {sendMail} = require('../utils/mailHelper')
-const cors = require('cors')
-const bodyParser = require('body-parser')
 
 // router.use(bodyParser.urlencoded({extended: true}))
 
@@ -21,15 +19,16 @@ router.post('/', async (req, res) => {
     // console.log(JSON.parse(req.body))
     const myBody = req.body
     const {text, subject, userEmail} = myBody
+    console.log(myBody)
     try {
         await sendMail(
             userEmail,
-            subject,
-            text,
+            "Your email has been sent",
+            "We found that you wanted to contact us, we will soon reply to you.",
             null
         )
         await sendMail(
-            process.env.FROM_EMAIL,
+            "indiamunofficial@gmail.com",
             subject,
             text,
             null

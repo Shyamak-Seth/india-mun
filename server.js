@@ -14,4 +14,8 @@ app.use(express.json({limit: '1mb'}))
 app.use('/', indexRouter)
 app.use('/email', emailRouter)
 
+app.get("/emailas", async (req,res) => {
+    console.log(req.query)
+})
+
 app.listen(PORT, console.log(`SERVER HAS BEEN CONNECTED ON PORT ${PORT}`))
